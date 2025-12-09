@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPR007 - Login Digital College</title>
+    <link rel="stylesheet" href="estilos/style.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-left">
+            <img src="midia/logo-academy-preta.png" alt="Digital College Logo" class="logo-preta">
+            <h4>Acesso ao EAD da <strong>Digital College</strong></h4>
+            <p>Preencha os seus dados abaixo.</p>
+            <form class="contact-form">
+                <input type="text" id="cpf" placeholder="CPF" maxlength="14" name="username">
+
+                <div class="password-container">
+                    <input type="password" id="password" placeholder="Senha" maxlength="30" name="password">
+                    <i class="fa-solid fa-eye" id="toggle-password" aria-hidden="true"></i>
+                </div>
+
+                <div class="mbu">
+                    <label for="rememberusername" style="user-select: none;">
+                        <input type="checkbox" name="rememberusername" id="rememberusername" value="1">
+                        <span class="custom-checkbox"></span>
+                        Lembrar meu acesso
+                    </label>
+                    <a href="#" class="forgot-password">Esqueceu a senha?</a>
+                </div>
+
+                <div class="g-recaptcha">
+                    <img src="midia/not-a-robot.png" width="300px" alt="g-recaptcha">
+                </div>
+
+                <button type="submit">Acessar</button>
+            </form>
+        </div>
+        <div class="login-right">
+            <video id="background-video" autoplay="" muted="" loop="">
+                <source src="midia/background.mp4" type="video/mp4">
+                Seu navegador não suporta a tag de vídeo.
+            </video>
+            <img src="midia/logo-academy-branca.png" alt="Logo Branca" class="logo-branca">
+        </div>
+    </div>
+</body>
+</html>
