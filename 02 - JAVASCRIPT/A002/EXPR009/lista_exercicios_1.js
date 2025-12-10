@@ -32,7 +32,7 @@ console.log("O seu imc é: " + imc)
 console.log("==== CADASTRO DE EMAIL ====")
 let nome = prompt("Digite o seu nome: ")
 let email = prompt("Digite o seu email: ")
-console.log("\nOlá, " + nome.toUpperCase() + "!\nO email (" + email + ")" + "\nFOI CADASTRADO COM SUCESSO!")
+console.log("\nOlá, " + nome.toUpperCase() + "!\nO email (" + email.toLowerCase() + ")" + "\nFOI CADASTRADO COM SUCESSO!")
 
 //6. Solicite ao usuário uma temperatura em graus Celsius e imprima o valor da temperatura em grau Fahrenheit.
 
