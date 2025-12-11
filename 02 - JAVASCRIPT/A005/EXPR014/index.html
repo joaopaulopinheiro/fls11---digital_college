@@ -1,0 +1,60 @@
+<!-- EXPR014 - PROJETO IMC: COLOCAR CAMPOS PARA PESO E ALTURA NA PÁGINA E UM BOTÃO DE CALCULAR. AO CLICAR NO BOTÃO A PÁGINA DEVE INFORMAR O RESULTADO. -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPR014 - Projeto IMC</title>
+    <link rel="stylesheet" href="src/styles/style.css">
+</head>
+<body>
+    
+<div id="container">
+
+    <div class="form">
+
+        <div class="titulo">
+            <h1>Projeto IMC</h1>
+            <p>Digite seu peso e sua altura</p>
+        </div>
+
+        <div class="campo">
+            <label for="peso">Seu peso (Kg)* </label>
+            <input type="number" name="peso" id="peso" step="0.1"/>
+        </div>
+
+        <div class="campo">
+            <label for="altura">Sua altura (m)* </label>
+            <input type="number" name="altura" id="altura" step="0.01"/>
+        </div>
+
+
+        <div class="botao">
+            <button onclick="calcularIMC()">Calcular</button>
+            <button onclick="resetarButao()">Resetar</button>
+        </div>
+
+    </div>
+
+    <div id="container-imc">
+
+        <div id="resultado"></div>
+
+        <div id="container-header">
+            <div class="cabecalho">
+                IMC
+            </div>
+            <div class="cabecalho">
+                CLASSIFICAÇÃO
+            </div>
+            <div id="resultado-imc"></div>
+            <div id="classificacao-imc"></div>
+        </div>
+    </div>
+</div>
+
+
+    <script src="src/scripts/script.js"></script>
+</body>
+</html>
