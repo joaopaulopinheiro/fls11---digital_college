@@ -33,6 +33,8 @@ const calcularMEDIA = () => {
         document.getElementById('resultado').textContent = "Sua média é igual a " + media
         document.getElementById('container-header').style.display = 'flex'
         document.getElementById('container').style.alignItems = 'flex-start'
+        document.getElementById('resultado').style.backgroundColor = ''
+        document.getElementById('resultado').style.color = ''
 
     } else {
         document.getElementById('resultado').textContent = "INFORME OS DADOS CORRETAMENTE!"
@@ -46,11 +48,11 @@ const calcularMEDIA = () => {
 }
 
 const resetarButao = () => {
-    document.getElementById('nota1').value = ' '
-    document.getElementById('nota2').value = ' '
-    document.getElementById('resultado').textContent = ' '
+    document.getElementById('nota1').value = ''
+    document.getElementById('nota2').value = ''
+    document.getElementById('resultado').textContent = ''
 
-    document.getElementById('resultado-media').style.backgroundColor = ' '
-    document.getElementById('situacao-media').style.backgroundColor = ' '
+    document.getElementById('resultado-media').style.backgroundColor = ''
+    document.getElementById('situacao-media').style.backgroundColor = ''
     document.getElementById('container-media').style.display = 'none'
 }

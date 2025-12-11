@@ -1,0 +1,24 @@
+<!-- EXPR018 - 2. Faça uma página HTML em que tenha um campo para digitar palavras, e um botão para cadastrar o item. Ao clicar no botão, o texto digitado deve ser armazenado num array e exibido no final da página. Coloque também um botão para excluir os últimos elementos. -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPR018 - Manipulando Arrays</title>
+</head>
+<body>
+
+    <h1>Cadastrar nomes</h1>
+
+    <label for="palavra">Digite uma palavra: </label>
+    <input type="text" name="palavra" id="palavra">
+
+    <button onclick="adicionarPalavra()">Cadastrar</button>
+    <button onclick="excluirPalavra()">Excluir</button>
+
+    <div id="resultado"></div>
+    
+    <script src="src/scripts/script.js"></script>
+</body>
+</html>

@@ -41,7 +41,7 @@ const conversorKelvin = () => {
 }
 
 const resetarButao = () => {
-    document.getElementById('grau').value = ' '
+    document.getElementById('grau').value = ''
     document.getElementById('container-conversor').style.display = 'none'
 
 }

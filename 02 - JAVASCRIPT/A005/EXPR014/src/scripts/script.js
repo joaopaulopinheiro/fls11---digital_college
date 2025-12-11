@@ -53,6 +53,8 @@ const calcularIMC = () => {
         document.getElementById('resultado').textContent = "Seu IMC é igual a " + imc
         document.getElementById('container-header').style.display = 'flex'
         document.getElementById('container').style.alignItems = 'flex-start'
+        document.getElementById('resultado').style.backgroundColor = ''
+        document.getElementById('resultado').style.color = ''
         
 
     } else {
@@ -67,11 +69,11 @@ const calcularIMC = () => {
 }
 
 const resetarButao = () => {
-    document.getElementById('peso').value = ' '
-    document.getElementById('altura').value = ' '
-    document.getElementById('resultado').textContent = ' '
+    document.getElementById('peso').value = ''
+    document.getElementById('altura').value = ''
+    document.getElementById('resultado').textContent = ''
 
-    document.getElementById('resultado-imc').style.backgroundColor = ' '
-    document.getElementById('classificacao-imc').style.backgroundColor = ' '
+    document.getElementById('resultado-imc').style.backgroundColor = ''
+    document.getElementById('classificacao-imc').style.backgroundColor = ''
     document.getElementById('container-imc').style.display = 'none'
 }
