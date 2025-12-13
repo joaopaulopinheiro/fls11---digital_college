@@ -1,4 +1,4 @@
-// EXPR022 - 1 a 12
+// EXPR022 - 1 a 3
 
 const alunos = [
     {
@@ -2869,36 +2869,6 @@ const jogadores = [
     }
 ]
 
-// {
-//         "id": "15",
-//         "nome": "TIAGO",
-//         "pontos": 409,
-//         "cotas": 33,
-//         "jogos": 132,
-//         "vitorias": 60,
-//         "empates": 33,
-//         "derrotas": 39,
-//         "gols_pro": 210,
-//         "gols_contra": 164,
-//         "saldo": 46,
-//         "primeiro": 10,
-//         "segundo": 11,
-//         "terceiro": 6,
-//         "quarto": 6,
-//         "gols": 34,
-//         "ass": 25,
-//         "amarelo": 1,
-//         "vermelho": 0
-//     }
-
-
-// for (let i = 0; i < jogadores.length; i++) {
-//     console.log(`Jogador: ${jogadores[i].nome}, GOLS: ${jogadores[i].gols}`);
-// }
-
-
-///////////////////////
-
 const estados =
 [
     {
@@ -3176,24 +3146,38 @@ const estados =
 
 // 1. Filtrar alunos do curso de Engenharia e imprimir seus nomes
 
+for (let i = 0; i < alunos.length; i++) {
+
+    console.log(`Aluno: ${alunos[i].nome} - Curso: ${alunos[i].curso}`)
+
+}
+
 // 2. Encontrar o aluno mais velho e imprimir seu nome e idade
+
+let maiorIdade = 0
+let nome = ''
+
+for (let i = 0; i < alunos.length; i++) {
+
+    if (maiorIdade < alunos[i].idade) {
+
+        maiorIdade = alunos[i].idade
+        nome = alunos[i].nome
+
+    }
+
+}
+
+// console.log(`O aluno com a maior idade foi o(a) ${nome} com idade de ${maiorIdade} anos.`)
 
 // 3. Calcular a média de idade dos alunos
 
-// 4. Contar quantos alunos estão em cada curso
+let soma = 0
 
-// 5. Filtrar jogadores com mais de 30 gols e imprimir seus nomes e quantidade de gols
+for (let i = 0; i < alunos.length; i++) {
 
-// 6. Calcular a média de gols por jogador
+    soma = soma + alunos[i].idade
 
-// 7. Contar quantos jogadores têm mais de 20 assistências
+}
 
-// 8. Listar os jogadores que receberam cartões vermelhos
-
-// 9. Filtrar os estados da região Nordeste e imprimir seus nomes
-
-// 10. Contar quantos estados existem em cada região
-
-// 11. Filtrar os estados que possuem "Grande" no nome e imprimir seus nomes
-
-// 12. Listar as siglas dos estados da região Sul
+console.log(`A média das ${alunos.length} idades foi de ${Math.floor(soma/alunos.length)} `)
