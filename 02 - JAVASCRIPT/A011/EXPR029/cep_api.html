@@ -1,0 +1,46 @@
+<!-- EXPR029 - Fazer uma página com um campo para digitar o cep e um botão, ao clicar no botão a página deve fazer uma chamada para a api do viacep e retornar os dados do cep logo abaixo, em uma div. -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPR029 - Cep com API</title>
+</head>
+
+<body>
+
+    <h1>Consultar CEP</h1>
+
+    <input type="text" id="campo">
+
+    <button id="btn" onclick="consultarCEP()">Enviar</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        const consultarCEP = async () => {
+
+            const cep = document.getElementById('campo').value
+
+            try {
+                const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                const dados = await resposta.json()
+
+                console.log(dados)
+
+                const container = document.getElementById('resultado')
+                let p = document.createElement("p");
+
+                p.innerHTML = `<pre>${JSON.stringify(dados, null, 2)}</pre>`
+                container.appendChild(p);
+
+            } catch (erro) {
+                console.log(erro)
+            }
+        }
+    </script>
+</body>
+
+</html>
