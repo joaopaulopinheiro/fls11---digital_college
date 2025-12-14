@@ -1,0 +1,105 @@
+<!-- EXPR024 - 1 a 3 -->
+ 
+<!-- 1. CRIE DOIS BOTÕES NUMA PÁGINA HTML, UM BOTÃO DEVE SER VERDE COM TEXTO BRANCO E COM O TEXTO 'ENVIAR'. AO CLICAR NESSE BOTÃO DEVE SER MOSTRADO O ALERTA: 'MENSAGEM ENVIADA COM SUCESSO'. O SEGUNDO BOTÃO DEVE SER VERMELHO COM FONTE BRANCA, AO CLICAR, O ALERTA 'MENSAGEM CANCELADA' DEVE SER MOSTRADO. O PRIMEIRO BOTÃO DEVE SER CAPTURADO DE FORMA INLINE, ENQUANTO O SEGUNDO SERÁ POR MEIO DO addEventListener -->
+
+<!-- <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPR025 - Manipulando eventos</title>
+    <style>
+        #btn-green {color: white; background-color: green;}
+        #btn-red {color: white; background-color: red;}
+    </style>
+</head>
+<body>
+    <h1>Enviar mensagem</h1>
+
+    <button id="btn-green" onclick="alert('MENSAGEM ENVIADA COM SUCESSO')">ENVIAR</button>
+    <button id="btn-red">CANCELAR</button>
+
+    <script>
+        document.getElementById('btn-red').addEventListener('click', () => {
+            alert('MENSAGEM CANCELADA')
+        })
+    </script>
+</body>     
+</html> -->
+
+<!-- 2. CRIE UMA DIV COM 100X100PX E FUNDO VERMELHO, AO PASSAR O MOUSE ELA DEVE FICAR VERDE. AO CLICAR, UMA DIV LOGO ABAIXO DEVE MOSTRAR A DATA E HORA DO CLIQUE -->
+
+<!-- <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPR025 - Manipulando eventos</title>
+</head>
+<body>
+
+    <div id="100x100" style="width: 100px; height: 100px; background-color: red;"></div>
+
+    <div id="dataHora"></div>
+
+    <script>
+
+        const fundo100 = document.getElementById('100x100')
+        const dataHora = document.getElementById('dataHora')
+
+        fundo100.addEventListener('mouseover', () => {fundo100.style.backgroundColor = 'green' })
+
+        fundo100.addEventListener('mouseout', () => {fundo100.style.backgroundColor = 'red';})
+
+        fundo100.addEventListener('click', () => {
+
+            dataHora.innerHTML = `<br> Data e Hora Atual: ${new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString()}`
+
+        })
+
+    </script>
+</body>
+</html> -->
+
+<!-- 3. Crie uma lista <ul>. Adicione um botão "Adicionar Itens" que cria novos <li>. Use a delegação para mostrar um alerta com o texto do item clicado. -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPR025 - Manipulando eventos</title>
+</head>
+<body>
+
+    <button id="btn">Adicionar itens</button>
+    <ul id="lista"></ul>
+
+    <script>
+
+        const lista = document.getElementById('lista')
+        const btn = document.getElementById('btn')
+        let contador = 1
+
+        btn.addEventListener('click', () => {
+
+            const item = document.createElement('li')
+
+            item.textContent = `Item ${contador++}`
+            lista.appendChild(item)
+
+        })
+
+        lista.addEventListener('click', (event) => {
+
+            if (event.target.tagName === 'LI') {
+
+                alert(`Clicou no ${event.target.textContent}`)
+
+            }
+
+        })
+        
+    </script>
+</body>
+</html>

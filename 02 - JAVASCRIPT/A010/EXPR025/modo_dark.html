@@ -1,0 +1,48 @@
+<!-- EXPR025 - CRIE UMA PÁGINA COM UM TÍTULO, UM PARAGRAFO E UM BOTAO. O BOTAO DEVE TER O TEXTO NO MODO ESCURO. AO CLICAR NO BOTAO, O FUNDO DA PAGINA DEVE FICAR PRETO E O TEXTO BRANCO E O BOTAO DEVE MUDAR O TEXTO PARA MODO CLARO. AO CLICA NOVAMENTE, O FUNDO DA PÁGINA DEVE VOLTAR AO NORMAL.  -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPR025 - Modo Dark</title>
+    <style>
+        .dark {
+            color: white;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Tema Dark</h1>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste asperiores natus nisi impedit ipsum placeat, doloremque quas at voluptates eveniet odit, deleniti provident, repudiandae corporis sit laboriosam labore eos quia? Iusto eius veniam doloremque officia dolore voluptatibus expedita repellendus aliquid dicta beatae reiciendis, accusantium cupiditate similique, odio a voluptate eligendi.</p>
+
+    <button onclick="modoDark()">Alterar Tema</button>
+    
+    <script>
+
+        let contador = 0
+
+        const modoDark = () => {
+
+            const body = document.querySelector('body')
+
+            if (contador % 2 == 0) {
+
+                body.classList.remove('dark')
+
+            } else {
+
+                body.classList.add('dark')
+
+            }
+
+            contador++
+
+        }
+
+    </script>
+</body>
+</html>
