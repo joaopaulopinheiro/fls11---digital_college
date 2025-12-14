@@ -1,4 +1,4 @@
-// EXPR022 - 1 a 3
+// EXPR022 - 1 a 12
 
 const alunos = [
     {
@@ -3168,7 +3168,7 @@ for (let i = 0; i < alunos.length; i++) {
 
 }
 
-// console.log(`O aluno com a maior idade foi o(a) ${nome} com idade de ${maiorIdade} anos.`)
+console.log(`O aluno com a maior idade foi o(a) ${nome} com idade de ${maiorIdade} anos.`)
 
 // 3. Calcular a média de idade dos alunos
 
@@ -3181,3 +3181,163 @@ for (let i = 0; i < alunos.length; i++) {
 }
 
 console.log(`A média das ${alunos.length} idades foi de ${Math.floor(soma/alunos.length)} `)
+
+// 4. Contar quantos alunos estão em cada curso
+
+const verificarQtd = (cursos) => {
+
+    let qtdAlunos = 0
+
+    for (let i = 0; i < alunos.length; i++) {
+
+        if(cursos == alunos[i].curso) {
+
+            qtdAlunos = qtdAlunos + 1
+
+        }
+
+    }
+
+    console.log(`Curso: ${cursos} - ${qtdAlunos} aluno(s).`)
+
+}
+
+// let cursos = []
+
+for (let i = 0; i < alunos.length; i++) {
+
+    if (!cursos.includes(alunos[i].curso)) {
+
+        cursos.push(alunos[i].curso)
+
+    }
+
+}
+
+for (let i = 0; i < cursos.length; i++) {
+
+    verificarQtd(cursos[i])
+
+}
+
+// 5. Filtrar jogadores com mais de 30 gols e imprimir seus nomes e quantidade de gols
+
+for (let i = 0; i < jogadores.length; i++){
+
+    if(jogadores[i].gols > 30) {
+
+    console.log(`${jogadores[i].nome}: ${jogadores[i].gols} Gols`)
+
+    }
+
+}
+
+// 6. Calcular a média de gols por jogador
+
+for (let i = 0; i < jogadores.length; i++){
+
+    console.log(`${jogadores[i].nome}: ${jogadores[i].gols} Gols, Média: ${ (jogadores[i].gols / jogadores[i].cotas) } `)
+
+}
+
+// 7. Contar quantos jogadores têm mais de 20 assistências
+
+for (let i = 0; i < jogadores.length; i++){
+
+    if(jogadores[i].ass > 20) {
+
+    console.log(`${jogadores[i].nome}: ${jogadores[i].ass} Assistências`)
+
+    }
+
+}
+
+// 8. Listar os jogadores que receberam cartões vermelhos
+
+for (let i = 0; i < jogadores.length; i++){
+
+    if(jogadores[i].vermelho >= 0) {
+
+    console.log(`${jogadores[i].nome}: ${jogadores[i].vermelho} cartão vermelho`)
+
+    }
+
+}
+
+// 9. Filtrar os estados da região Nordeste e imprimir seus nomes
+
+for (let i = 0; i < estados.length; i++) {
+
+    if (estados[i].regiao.nome === "Nordeste") {
+
+        console.log(`Estado:  ${estados[i].nome}`)
+
+    }
+
+}
+
+// 10. Contar quantos estados existem em cada região
+
+const verificarQuantidade = (reg) => {
+
+    let qtdEstados = 0
+    let est = []
+
+    for (let i = 0; i < estados.length; i++) {
+
+        if(reg == estados[i].regiao.nome) {
+
+            qtdEstados++
+            est.push(estados[i].nome)
+
+        }
+
+    }
+
+    console.log(`Região: ${reg} - ${qtdEstados} estado(s).`)
+
+    console.log(`São eles: ${est.join(', ')}. \n`)
+
+}
+
+let regioes = []
+
+for (let i = 0; i < estados.length; i++) {
+
+    if (!regioes.includes(estados[i].regiao.nome)) {
+
+        regioes.push(estados[i].regiao.nome)
+
+    }
+
+}
+
+for (let i = 0; i < regioes.length; i++) {
+
+    verificarQuantidade(regioes[i])
+
+}
+
+// 11. Filtrar os estados que possuem "Grande" no nome e imprimir seus nomes
+
+for (let i = 0; i < estados.length; i++) {
+
+    if (estados[i].nome.includes('Grande')) {
+
+        console.log(estados[i].nome)
+
+    }
+
+}
+
+// 12. Listar as siglas dos estados da região Sul
+
+for (let i = 0; i < estados.length; i++) {
+
+    if (estados[i].regiao.nome == 'Sul') {
+
+        console.log(`${estados[i].sigla} - ${estados[i].nome}`)
+
+    }
+
+}

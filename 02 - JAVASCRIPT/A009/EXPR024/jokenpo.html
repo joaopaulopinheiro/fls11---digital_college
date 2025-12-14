@@ -1,0 +1,28 @@
+<!-- EXPR024 - Vamos criar o jogo de pedra, papel e tesoura. Onde:
+O papel vence a pedra, mas perde para a tesoura.
+A pedra vence a tesoura, mas perde para o papel.
+A tesoura vence o papel, mas perde para a pedra.
+
+Deve ser feita numa página HTML, o script pode ser dentro da página ou com arquivo .js separado. O jogo deve permitir jogar quantas vezes quiser, o usuário vai jogar contra a máquina, então sempre que ele escolher um dos 3 itens, o computador também escolhe o dele, a página deve comparar os dois e dizer quem venceu, ou se foi empate. -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPR024 - Pedra, Papel, Tesoura</title>
+</head>
+<body>
+
+    <h1>Pedra, Papel, Tesoura</h1>
+    <p style="display: inline-block;">Escolha sua jogada: </p>
+
+    <button onclick="escolhaPedra()">Pedra</button>
+    <button onclick="escolhaPapel()">Papel</button>
+    <button onclick="escolhaTesoura()">Tesoura</button>
+
+    <div id="resultado"></p>
+    
+<script src="src/scripts/script.js"></script>
+</body>
+</html>

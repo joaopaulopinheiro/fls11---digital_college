@@ -1,0 +1,148 @@
+<!-- EXPR023 1 a 4 --> 
+ 
+<!-- 1. Crie um arquivo HTML com três parágrafos. Use querySelector para selecionar o primeiro parágrafo e querySelectorAll para selecionar todos. -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPR023 - Manipulando DOM</title>
+</head>
+<body>
+
+    <h1>Manipulando DOM - Selecionando elementos</h1>
+
+    <p class="item">Primeiro Parágrafo</p>
+    <p class="item">Segundo Parágrafo</p>
+    <p class="item">Terceiro Parágrafo</p>
+
+<script>
+    const primeiroItem = document.querySelector('.item');
+    const todosItens = document.querySelectorAll('.item')
+
+    console.log(primeiroItem.textContent)
+    console.log(todosItens)
+</script>
+</body>
+</html>
+
+<!-- 2. Crie uma div container e um botão logo abaixo, sempre que o usuário clicar no botão, a div deve receber um novo parágrafo e a quantidade de cliques: 
+ 
+Ex: O botão foi clicado 1 vez
+O botão foi clicado 2 vezes
+O botão foi clicado 3 vezes
+O botão foi clicado 4 vezes
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPR024 - Manipulando DOM</title>
+</head>
+<body>
+
+    <h1>Manipulando DOM - Criando elementos</h1>
+
+    <button onclick="qtdClicado()">Adicionar parágrafo</button>
+    <div id="container"></div>
+
+    
+<script>
+
+    let qtd = 0
+
+    const qtdClicado = () => {
+
+        qtd++
+
+        const novoParagrafo = document.createElement('p');
+        novoParagrafo.textContent = `O botão foi clicado ${qtd} vez(es).`
+        document.getElementById('container').appendChild(novoParagrafo)
+
+    }
+
+</script>
+</body>
+</html>
+
+<!-- 3. Crie uma lista <ul>, um botao de adicionar e um campo de texto. Ao clicar no botao, o texto digitado deve ser adicionado na lista. -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPR025 - Manipulando listas com DOM</title>
+</head>
+<body>
+    <h1>Manipulando listas com DOM</h1>
+
+    <input id="item" type="text" placeholder="Digite o item de sua lista">
+    <button onclick="addItem()">Adicionar</button>
+
+    <ul id="lista"></ul>
+
+    <script>
+
+        const addItem = () => {
+
+            if (document.getElementById('item').value != '') {
+
+                const novoItem = document.createElement('li');
+                novoItem.textContent = document.getElementById('item').value;
+                document.getElementById('lista').appendChild(novoItem);
+
+                document.getElementById('item').value = ''
+
+            }
+        }
+
+    </script>
+</body>
+</html>
+
+<!-- 4. Crie um parágrafo inicialmente sem classe. Crie um botão para destacar e outro para tirar o destaque, usando o adicionar ou remover classe. -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPR023 - Adicionando classes com DOM</title>
+    <style>
+        .destaque {
+            background-color: yellow;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Adicionando classes com DOM</h1>
+
+    <p>Paragrafo de exemplo</p>
+    <button onclick="destacar()">Destacar Texto</button>
+    <button onclick="resetar()">Excluir Destaque</button>
+
+    <script>
+
+        const p = document.querySelector('p')
+
+        const destacar = () => {
+
+            p.classList.add('destaque')
+
+        }
+
+        const resetar = () => {
+
+            p.classList.remove('destaque')
+
+        }
+
+    </script>
+</body>
+</html>
