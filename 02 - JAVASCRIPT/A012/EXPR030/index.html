@@ -1,0 +1,179 @@
+ <!-- EXPR030 - CRIAR UMA PÁGINA COM OS ITENS DE UMA LISTA DE PRODUTOS UTILIZANDO A API: https://fakestoreapi.com/products
+
+1. FAÇA UMA REQUISIÇÃO PARA A API E RECUPERE A LISTA DE PRODUTOS.
+2. CRIE CARDS DINÂMICOS PARA CADA PRODUTO, EXIBINDO A IMAGEM, O NOME E O PREÇO.
+3. USANDO ALGUM MÉTODO DE ARRAY, CRIE BOTÕES DE FILTRO PARA CATEGORIAS DE PRODUTOS (EXEMPLO: ELETRÔNICOS, JOIAS, ROUPAS).
+4. AO CLICAR EM UM BOTÃO DE FILTRO, EXIBA APENAS OS PRODUTOS DA CATEGORIA SELECIONADA NA PÁGINA. -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPR030 - Lista de Produtos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform .2s;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            font-size: 14px;
+            margin: 5px 0;
+            height: 100px;
+        }
+
+        .card p {
+            font-size: 12px;
+            margin: 3px 0;
+        }
+
+        .preco {
+            font-weight: bold;
+            color: #28a745;
+            font-size: 16px;
+            margin-top: 40px;
+        }
+
+        .categorias {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color .2s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Lista de Produtos</h1>
+
+    <div class="categorias" id="categorias"></div>
+    <div class="container" id="produtos"></div>
+
+    <script>
+        const containerProdutos = document.getElementById("produtos")
+        const containerCategorias = document.getElementById("categorias")
+        let produtos = []
+
+        window.addEventListener('load', async () => {
+            try {
+                const url = 'https://fakestoreapi.com/products'
+                const response = await fetch(url)
+                produtos = await response.json()
+
+                criarBotoes()
+                montarCards(produtos)
+
+            } catch (error) {
+                console.error("Erro ao buscar produtos:", error)
+            }
+            
+        })
+
+        function montarCards(lista) {
+            containerProdutos.innerHTML = ""
+
+            lista.forEach((product, i) => {
+                containerProdutos.innerHTML += `
+                <div class="card" data-index="${i}">
+                    <img src="${product.image}" alt="${product.title}">
+                    <h3>${product.title}</h3>
+                    <p class='preco'>R$: ${product.price.toFixed(2)}</p>
+                </div>
+                `;
+            })
+        }
+
+        function criarBotoes() {
+
+            const categorias = []
+
+            produtos.forEach(produto => {
+
+                if(!categorias.includes(produto.category)) {
+                    categorias.push(produto.category)
+                }
+            })
+
+            categorias.unshift('Todos')
+
+            categorias.forEach(categoria => {
+
+                containerCategorias.innerHTML += `
+                <button class="btn">${categoria}</button>
+                `
+            })
+
+            const botoes = containerCategorias.querySelectorAll('button')
+
+        botoes.forEach(btn => {
+            btn.addEventListener('click', () => {
+
+                const categoria = btn.textContent
+
+                if(categoria == 'Todos') {
+                    montarCards(produtos)
+
+                } else {
+                    const filtro = produtos.filter(p => p.category == categoria)
+                    montarCards(filtro)
+                }
+            })
+        })
+
+        }
+
+        containerProdutos.addEventListener("click", function (event) {
+            const card = event.target.closest(".card");
+            if (!card) return;
+
+            const index = card.dataset.index;
+            const product = produtos[index];
+
+            alert("Você clicou no produto: " + product.title + "\nPreço: R$" + product.price);
+        })      
+    </script>
+</body>
+</html>
